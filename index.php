@@ -2,14 +2,26 @@
 
 <?php
 
+// Checks if data has been submitted, then returns data
 function getData() {
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if ($_GET)
+    {
+        // check if keys exist, if so use them. If not, set to empty string
+        $return = isset($_GET['returnDate']) ? $_GET['returnDate'] : '';
+        $due = isset($_GET['dueDate']) ? $_GET['dueDate'] : '';
 
-        $dueDate = $_GET["dueDate"];
-        $returnDate = $_GET["returnDate"];
+        // If both variables exist, return them.
+        if ($return && $due) {
 
-        echo "Due: $dueDate, Return: $returnDate";
+            // create an array to hold the dates
+            $dates = ['return' => $return, 'due' => $due];
 
+            return $dates;
+        }
+        else {
+            return '';
+        }
+        
     }
 }
 
@@ -28,7 +40,8 @@ function getData() {
 
 <body>
 
-    <?php getData(); ?>
+    <!-- data passthrough test -->
+    <?php //echo print_r(getData()); ?>
 
     <div class="container mt-3">
         <h1 style="text-decoration: underline;">Library Book Due Checker</h1>
@@ -36,6 +49,25 @@ function getData() {
 
     <!-- form.php -->
     <?php include "form.php"; ?>
+
+    <!-- insert date logic functions -->
+    <?php
+    require "functions.php";
+
+    if ($_GET): ?>
+        <div class="container card mt-4 mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Dates Entered</h5>
+                <p>Return Date: <?= $_GET['returnDate']; ?> </p>
+                <p>Due Date: <?= $_GET['dueDate']; ?></p>
+            </div>
+            <div class="card-body pt-0">
+                <h5 class="card-title">Information</h5>
+                <!-- <p><?= formatDates($_GET['returnDate'], $_GET['dueDate']); ?> </p> -->
+                <p><?= finalOutput($_GET['returnDate'], $_GET['dueDate']); ?></p>
+            </div>
+        </div>
+    <?php endif; ?>
 
 </body>
 
