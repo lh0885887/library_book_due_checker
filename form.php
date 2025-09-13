@@ -27,7 +27,7 @@
             <div class="mb-3">
                 <label for="dueDate" class="form-label">Due Date</label>
                 <input type="date" class="form-control" name="dueDate" id="dueDate">
-                <div id="tooltip2" class="form-text">(Enter the date the book was due)</div>
+                <div id="tooltip2" class="form-text">(Enter the date the book is due)</div>
             </div>
 
             <!-- Submit button -->
