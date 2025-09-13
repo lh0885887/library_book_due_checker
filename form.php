@@ -1,12 +1,5 @@
 <!-- Logan Hill -->
 
-<?php
-
-// TODO: Check form submission
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,14 +19,14 @@
             <!-- Return Date field -->
             <div class="mb-3">
                 <label for="returnDate" class="form-label">Return Date</label>
-                <input type="date" class="form-control" id="returnDate" aria-describedby="returnDate">
+                <input type="date" class="form-control" name="returnDate" id="returnDate" aria-describedby="returnDate">
                 <div id="tooltip1" class="form-text">(Enter the date the book was returned)</div>
             </div>
 
             <!-- Due Date field -->
             <div class="mb-3">
                 <label for="dueDate" class="form-label">Due Date</label>
-                <input type="date" class="form-control" id="dueDate">
+                <input type="date" class="form-control" name="dueDate" id="dueDate">
                 <div id="tooltip2" class="form-text">(Enter the date the book was due)</div>
             </div>
 

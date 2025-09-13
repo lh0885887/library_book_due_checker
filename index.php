@@ -1,5 +1,19 @@
 <!-- Logan Hill -->
 
+<?php
+
+function getData() {
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+        $dueDate = $_GET["dueDate"];
+        $returnDate = $_GET["returnDate"];
+
+        echo "Due: $dueDate, Return: $returnDate";
+
+    }
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -13,6 +27,9 @@
 </head>
 
 <body>
+
+    <?php getData(); ?>
+
     <div class="container mt-3">
         <h1 style="text-decoration: underline;">Library Book Due Checker</h1>
     </div>
